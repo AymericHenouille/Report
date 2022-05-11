@@ -1,0 +1,29 @@
+<h2 mat-dialog-title>Create new repport</h2>
+<form [formGroup]="form" (ngSubmit)="createReport()">
+  <mat-dialog-content class="mat-typography">
+    <button mat-icon-button [matMenuTriggerFor]="emojiPicker">
+      <span *ngIf="emoji; else icon">{{ emoji }}</span>
+      <ng-template #icon>
+        <mat-icon>insert_emoticon</mat-icon>
+      </ng-template>
+    </button>
+    <mat-form-field>
+      <mat-label>Repport title</mat-label>
+      <input matInput formControlName="title" placeholder="Title">
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button type="submit" [disabled]="form.invalid">Create</button>
+  </mat-dialog-actions>
+</form>
+
+<mat-menu #emojiPicker="matMenu">
+  <emoji-mart
+    (click)="$event.stopPropagation()"
+    emoji="point_up"
+    set="google"
+    [showPreview]="false"
+    (emojiClick)="emoji = $event.emoji.native"
+  ></emoji-mart>
+</mat-menu>

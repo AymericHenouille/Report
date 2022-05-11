@@ -1,0 +1,27 @@
+$size: 35vw;
+$max-size: 165px;
+
+mat-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1em;
+  height: $size;
+  width: $size;
+  max-height: $max-size;
+  max-width: $max-size;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+span {
+  text-align: center;
+  font-size: 18px;
+  &:first-child {
+    font-size: 36px;
+  }
+}

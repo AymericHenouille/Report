@@ -1,0 +1,4 @@
+<div [@popover]="repports.length" class="container">
+  <app-board-item *ngFor="let repport of repports" [repport]="repport"></app-board-item>
+  <app-add-item (newRepport)="addItem($event)"></app-add-item>
+</div>

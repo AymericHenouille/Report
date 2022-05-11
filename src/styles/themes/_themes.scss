@@ -1,0 +1,10 @@
+@use '@angular/material' as mat;
+@use 'light-theme' as light;
+@use 'dark-theme' as dark;
+
+@mixin install-themes {
+  @include mat.core();
+  &.light-theme { @include light.install-light-theme(false); }
+  &.dark-theme { @include dark.install-dark-theme(false); }
+  @extend .mat-app-background;
+}

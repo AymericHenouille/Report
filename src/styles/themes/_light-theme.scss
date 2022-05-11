@@ -1,0 +1,21 @@
+@use '@angular/material' as mat;
+
+$light-primary: mat.define-palette(mat.$indigo-palette);
+$light-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$light-warn: mat.define-palette(mat.$red-palette);
+
+$light-theme: mat.define-light-theme((
+  color: (
+    primary: $light-primary,
+    accent: $light-accent,
+    warn: $light-warn,
+  )
+));
+
+@mixin install-light-theme($background: true) {
+  @include mat.all-component-themes($light-theme);
+  @if $background == true {
+    @extend .mat-app-background;
+  }
+}
+
