@@ -1,8 +1,9 @@
 @use './styles/themes/themes' as themes;
-@import './styles/utils/utils';
+@use './styles/global/global' as global;
+@use './styles/global/default' as default;
+@import "./styles/utils/utils";
 
-html, body {
-  height: 100%;
-  margin: 0;
+@include global.install-global-styles {
   @include themes.install-themes();
+  @include default.install-default-styles();
 }

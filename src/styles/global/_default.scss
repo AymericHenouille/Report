@@ -1,0 +1,4 @@
+@mixin install-default-styles {
+  margin: 0;
+  .mat-tab-label-content { flex-direction: column; }
+}

@@ -3,16 +3,16 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MatTestDialogOpenerModule } from '@angular/material/dialog/testing';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { CreateRepportDialog } from './create-repport.component';
+import { CreateReportDialog } from './create-report.component';
 
 
-describe('CreateRepportComponent', () => {
-  let component: CreateRepportDialog;
-  let fixture: ComponentFixture<CreateRepportDialog>;
+describe('CreateReportComponent', () => {
+  let component: CreateReportDialog;
+  let fixture: ComponentFixture<CreateReportDialog>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CreateRepportDialog ],
+      declarations: [ CreateReportDialog ],
       imports: [ SharedModule, MatTestDialogOpenerModule, ReactiveFormsModule ],
       providers: [
         { provide: MatDialogRef, useValue: {} }
@@ -22,7 +22,7 @@ describe('CreateRepportComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CreateRepportDialog);
+    fixture = TestBed.createComponent(CreateReportDialog);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

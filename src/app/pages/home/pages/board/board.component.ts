@@ -1,46 +1,32 @@
-import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { RepportInfo } from 'src/app/core/models/repport.model';
-import { RepportService } from '../../../../core/services/repport.service';
+import { popover } from 'src/app/core/animations';
+import { ReportInfo } from 'src/app/core/models/report.model';
+import { ReportService } from '../../../../core/services/report.service';
 
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
   styleUrls: ['./board.component.scss'],
-  animations: [
-    trigger('popover', [
-      transition(':enter', query(':enter, app-add-item', [
-        style({ transform: 'scale(0) translateY(100%) rotate(45deg)' }),
-        stagger(200, animate('0.5s ease-in-out'))
-      ])),
-      transition(':increment', query(':enter', [
-        style({ transform: 'scale(0) translateY(100%) rotate(45deg)' }),
-        stagger(200, animate('0.5s ease-in-out'))
-      ])),
-      transition(':leave, :decrement', query(':leave', [
-        animate('0.5s ease-in-out', style({ transform: 'scale(0) rotate(45deg)' }))
-      ]))
-    ])
-  ]
+  animations: [ popover ]
 })
 export class BoardComponent implements OnInit, OnDestroy {
 
-  public repports: RepportInfo[] = [];
+  public reports: ReportInfo[] = [];
   private _reports!: Subscription;
 
-  constructor(private repportService: RepportService) { }
+  constructor(private reportService: ReportService) { }
 
   public ngOnInit(): void {
-    this._reports = this.repportService.repports$.subscribe(repports => this.repports = repports);
+    this._reports = this.reportService.reports$.subscribe(reports => this.reports = reports);
   }
 
   public ngOnDestroy(): void {
     this._reports.unsubscribe();
   }
 
-  public addItem(repport: RepportInfo): void {
-    this.repportService.addReport(repport);
+  public addItem(report: ReportInfo): void {
+    this.reportService.addReport(report);
   }
 
 }

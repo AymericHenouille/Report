@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>Create new repport</h2>
+<h2 mat-dialog-title>Create new report</h2>
 <form [formGroup]="form" (ngSubmit)="createReport()">
   <mat-dialog-content class="mat-typography">
     <button mat-icon-button [matMenuTriggerFor]="emojiPicker">
@@ -8,13 +8,13 @@
       </ng-template>
     </button>
     <mat-form-field>
-      <mat-label>Repport title</mat-label>
+      <mat-label>Report title</mat-label>
       <input matInput formControlName="title" placeholder="Title">
     </mat-form-field>
   </mat-dialog-content>
   <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>Cancel</button>
-    <button mat-button type="submit" [disabled]="form.invalid">Create</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Create</button>
   </mat-dialog-actions>
 </form>
 

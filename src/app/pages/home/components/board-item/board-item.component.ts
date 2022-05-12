@@ -1,6 +1,6 @@
 import { Component, HostListener, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { RepportInfo } from 'src/app/core/models/repport.model';
+import { ReportInfo } from 'src/app/core/models/report.model';
 
 @Component({
   selector: 'app-board-item',
@@ -9,13 +9,13 @@ import { RepportInfo } from 'src/app/core/models/repport.model';
 })
 export class BoardItemComponent {
 
-  @Input() public repport!: RepportInfo;
+  @Input() public report!: ReportInfo;
 
   constructor(private router: Router) { }
 
   @HostListener('click')
   public click(): void {
-    this.router.navigate(['/home', 'board', this.repport?.id ?? 0]);
+    this.router.navigate(['/home', 'board', this.report?.id ?? 0]);
   }
 
 }

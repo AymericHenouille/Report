@@ -1,16 +1,16 @@
 /**
  * Contain all the information inside a report.
  */
-export interface Repport {
-  [key: string]: number | string | boolean | Repport;
+export interface Report {
+  [key: string]: number | string | boolean | Report;
 }
 
 /**
  * Contain all the information about a report.
  */
-export interface RepportInfo {
+export interface ReportInfo {
   id?: string;
   title?: string;
   emoji?: string;
-  report?: Repport;
+  report?: Report;
 }

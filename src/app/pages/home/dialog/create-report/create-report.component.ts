@@ -2,20 +2,20 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MatMenuTrigger } from '@angular/material/menu';
-import { RepportInfo } from 'src/app/core/models/repport.model';
+import { ReportInfo } from 'src/app/core/models/report.model';
 
 @Component({
   selector: 'app-create-report',
-  templateUrl: './create-repport.component.html',
-  styleUrls: ['./create-repport.component.scss']
+  templateUrl: './create-report.component.html',
+  styleUrls: ['./create-report.component.scss']
 })
-export class CreateRepportDialog implements OnInit {
+export class CreateReportDialog implements OnInit {
 
   @ViewChild(MatMenuTrigger)
   public menu!: MatMenuTrigger;
   public form!: FormGroup;
 
-  constructor(private dialogRef: MatDialogRef<CreateRepportDialog>) { }
+  constructor(private dialogRef: MatDialogRef<CreateReportDialog>) { }
 
   public ngOnInit(): void {
     this.form = new FormGroup({
@@ -26,12 +26,12 @@ export class CreateRepportDialog implements OnInit {
 
   public createReport(): void {
     if (this.form.valid) {
-      const repport: RepportInfo = {
-        id: 0,
+      const report: ReportInfo = {
+        id: Date.now(),
         ...this.form.value,
-        repport: {}
+        report: {}
       }
-      this.dialogRef.close(repport);
+      this.dialogRef.close(report);
     }
   }
 

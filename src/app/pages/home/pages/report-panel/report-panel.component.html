@@ -1,1 +1,23 @@
-<p>{{ repport | json }}</p>
+<mat-tab-group mat-align-tabs="center">
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon>assignment</mat-icon>
+      Panel
+    </ng-template>
+    <app-report></app-report>
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon>query_stats</mat-icon>
+      Stats
+    </ng-template>
+    <app-stats></app-stats>
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon>settings</mat-icon>
+      Parameters
+    </ng-template>
+    <app-parameters></app-parameters>
+  </mat-tab>
+</mat-tab-group>

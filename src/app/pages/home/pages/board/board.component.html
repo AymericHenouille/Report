@@ -1,4 +1,4 @@
-<div [@popover]="repports.length" class="container">
-  <app-board-item *ngFor="let repport of repports" [repport]="repport"></app-board-item>
-  <app-add-item (newRepport)="addItem($event)"></app-add-item>
+<div [@popover]="reports.length" class="container">
+  <app-add-item (newReport)="addItem($event)"></app-add-item>
+  <app-board-item *ngFor="let report of reports" [report]="report"></app-board-item>
 </div>

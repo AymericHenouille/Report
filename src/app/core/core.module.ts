@@ -1,7 +1,7 @@
 import { NgModule, Type } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RepportService } from './services/repport.service';
+import { ReportService } from './services/report.service';
 
 /**
  * Shared modules list.
@@ -18,7 +18,7 @@ const MODULES: Type<unknown>[] = [
   imports: [MODULES],
   exports: [MODULES],
   providers: [
-    RepportService
+    ReportService
   ]
 })
 export class CoreModule { }

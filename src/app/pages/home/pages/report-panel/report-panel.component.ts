@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { filter, map, Subscription, switchMap } from 'rxjs';
-import { RepportInfo } from 'src/app/core/models/repport.model';
-import { RepportService } from 'src/app/core/services/repport.service';
+import { ReportInfo } from 'src/app/core/models/report.model';
+import { ReportService } from 'src/app/core/services/report.service';
 
 @Component({
   selector: 'app-report-panel',
@@ -11,24 +11,24 @@ import { RepportService } from 'src/app/core/services/repport.service';
 })
 export class ReportPanelComponent implements OnInit, OnDestroy {
 
-  public repport!: RepportInfo;
-  private _repport!: Subscription;
+  public report!: ReportInfo;
+  private _report!: Subscription;
 
   constructor(
     private router: ActivatedRoute,
-    private repportService: RepportService
+    private reportService: ReportService
   ) { }
 
   public ngOnInit(): void {
-    this._repport = this.router.params.pipe(
+    this._report = this.router.params.pipe(
       filter(params => !!params['id']),
       map(params => params['id']),
-      switchMap(id => this.repportService.getReportById(id))
-    ).subscribe(repport => this.repport = repport);
+      switchMap(id => this.reportService.getReportById(id))
+    ).subscribe(report => this.report = report);
   }
 
   public ngOnDestroy(): void {
-    this._repport.unsubscribe();
+    this._report.unsubscribe();
   }
 
 }
